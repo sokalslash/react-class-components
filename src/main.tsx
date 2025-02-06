@@ -61,7 +61,7 @@ class ParamEditor extends React.Component<Props, State> {
       model: props.model,
     };
 
-    this.handleChange = this.handleChange.bind(this);
+    this._handleChange = this._handleChange.bind(this);
   }
 
   public getModel(): Model {
@@ -69,7 +69,7 @@ class ParamEditor extends React.Component<Props, State> {
     return this.state.model;
   }
 
-  handleChange(event: ChangeEvent<HTMLInputElement>) {
+  private _handleChange(event: ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
     this.setState((prevState) => ({
       model: {
@@ -102,7 +102,7 @@ class ParamEditor extends React.Component<Props, State> {
               id={`${paramValue.paramId}`}
               type="text"
               name={`${paramValue.paramId}`}
-              onChange={this.handleChange}
+              onChange={this._handleChange}
             />
           ))}
         </div>
